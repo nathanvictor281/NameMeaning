@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figure Out What Your Name Means</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <style>
+    body {
+      background-color: #000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      color: #000000;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    p {
+      color: #000000;
+      font-size: 18px;
+      margin-top: 20px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Figure Out What Your Name Means</h1>
+    <input type="text" id="name-input" placeholder="Enter your name">
+    <button id="submit-btn">Submit</button>
+    <p id="meaning"></p>
+  </div>
+
+  <script>
+    const nameMeanings = {
+      "john": "God is gracious",
+      "mary": "Wished-for child",
+      "david": "Beloved",
+      "elizabeth": "God is my oath",
+      "michael": "Who is like God",
+      "sarah": "Princess",
+      "daniel": "God is my judge",
+      "emily": "Industrious",
+      "matthew": "Gift of God",
+      "olivia": "Olive tree",
+      "christopher": "Bearer of Christ",
+      "emma": "Universal",
+      "joseph": "God will increase",
+      "ava": "Bird",
+      "andrew": "Manly, brave",
+      "sophia": "Wisdom",
+      "william": "Resolute protector",
+      "isabella": "God is my oath",
+      "james": "Supplanter",
+      "mia": "Mine",
+      "sharon": "Variant of 'Sharon' meaning 'a fertile plain'",
+      "sheila": "Variant of 'Sheila' meaning 'heavenly'",
+      "augustine": "Great, magnificent",
+      "henry": "Ruler of the home",
+      "leo": "Lion",
+      "claire": "Bright, clear",
+      "lexi": "Defender of mankind",
+      "alex": "Defender of mankind",
+      "alexander": "Defender of mankind",
+      "nathan": "Gift from God",
+      "andre": "Manly, brave",
+      "jeronimo": "Holy name",
+      "charlie": "Free man",
+      "anand": "Bliss, joy",
+      "rithika": "Of a flowing stream",
+      "nikhil": "Complete, whole",
+      "charlotte": "Free man",
+      "aaron": "Exalted, strong",
+      "oliver": "Olive tree",
+      "lily": "Pure, innocent",
+      "ryan": "Little king",
+      "grace": "Elegance, beauty",
+      "ethan": "Strong, firm",
+      "chloe": "Blooming, fertility",
+      "dylan": "Son of the sea",
+      "ella": "Beautiful fairy",
+      "benjamin": "Son of the right hand",
+      "hannah": "Grace, favor",
+      "samuel": "Asked of God",
+      "natalie": "Born on Christmas Day",
+      "jacob": "Supplanter",
+      "noah": "Rest, comfort",
+      "samantha": "Listener",
+      "drew": "Courageous",
+      "vasonia": "Exalted",
+      "leika": "Bud of plum",
+      "kylie": "Boomerang",
+      "charles": "Free man",
+      "henry": "Ruler of the home",
+      "tijan": "Crown",
+      "phoebe": "Bright, radiant",
+      "colin": "Victory of the people",
+      "jeronimo": "Holy name",
+      "mikaela": "Who is like God",
+      "andre": "Manly, brave",
+      "kalei": "The flower wreath",
+      "leo": "Lion"
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const nameInput = document.getElementById("name-input");
+      const submitBtn = document.getElementById("submit-btn");
+      const meaningElement = document.getElementById("meaning");
+
+      submitBtn.addEventListener("click", () => {
+        const name = nameInput.value.trim().toLowerCase();
+        const meaning = nameMeanings[name];
+        if (meaning) {
+          displayMeaning(name, meaning);
+        } else {
+          displayErrorMessage(name);
+        }
+      });
+
+      function displayMeaning(name, meaning) {
+        meaningElement.textContent = `The meaning of the name '${capitalizeFirstLetter(name)}' is:\n${meaning}`;
+      }
+
+      function displayErrorMessage(name) {
+        meaningElement.textContent = `Sorry, the meaning of the name '${capitalizeFirstLetter(name)}' could not be found.`;
+      }
+
+      function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+    });
+  </script>
+</body>
+
+</html>
